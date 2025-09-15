@@ -1,0 +1,2 @@
+@echo off
+echo https://sacred-crown-b74065709e.strapiapp.com/admin| node_modules\.bin\strapi transfer --to https://sacred-crown-b74065709e.strapiapp.com/admin --to-token cc20fbfba75051a7f31f4bd3fe4fc17be60579aaee484ee597213f262dd81bac0c8472378fae840772119464b58ef3b286d4284c8f79f27a932a88025ca8277c036326d84c1e859ef9536b40b04455aed6141689bf144dccb3cd4db0f0389d8d25cf3deac8c0f8338e85924a028f963cffe686ed50bea9f87d076b3e78109e10 --force

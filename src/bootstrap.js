@@ -6,6 +6,10 @@ const mime = require('mime-types');
 const { categories, authors, articles, global, about } = require('../data/data.json');
 
 async function seedExampleApp() {
+  // Disabled automatic seeding as we've removed the old content types
+  console.log('Skipping template seed data - using custom content types');
+  return;
+
   const shouldImportSeedData = await isFirstRun();
 
   if (shouldImportSeedData) {
