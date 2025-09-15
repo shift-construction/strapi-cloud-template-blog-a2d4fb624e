@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "networks",
+  "info": {
+    "singularName": "network",
+    "pluralName": "networks",
+    "displayName": "Network",
+    "description": "Geographic networks for hyperlocal event management"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "subdomain": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "latitude": {
+      "type": "decimal",
+      "required": true
+    },
+    "longitude": {
+      "type": "decimal",
+      "required": true
+    },
+    "radius_km": {
+      "type": "decimal",
+      "default": 10,
+      "required": true
+    },
+    "owner_email": {
+      "type": "email",
+      "required": true
+    },
+    "settings": {
+      "type": "json"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "networks"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "network"
+    }
+  }
+}

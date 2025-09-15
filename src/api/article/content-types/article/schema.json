@@ -5,7 +5,7 @@
     "singularName": "article",
     "pluralName": "articles",
     "displayName": "Article",
-    "description": "Create your blog content"
+    "description": "Articles and guides for parents"
   },
   "options": {
     "draftAndPublish": true
@@ -13,11 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "text",
-      "maxLength": 80
+      "maxLength": 160
     },
     "slug": {
       "type": "uid",
@@ -27,19 +28,36 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
-    },
-    "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::author.author",
-      "inversedBy": "articles"
+      "allowedTypes": ["images"]
     },
     "category": {
+      "type": "enumeration",
+      "enum": [
+        "playgroups_classes",
+        "local_guides",
+        "parent_resources",
+        "parties_celebrations",
+        "places_to_eat",
+        "advertise_with_us",
+        "about_us"
+      ],
+      "required": true
+    },
+    "author_name": {
+      "type": "string"
+    },
+    "author_email": {
+      "type": "email"
+    },
+    "network": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::category.category",
+      "target": "api::network.network",
       "inversedBy": "articles"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
     },
     "blocks": {
       "type": "dynamiczone",
